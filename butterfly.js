@@ -155,6 +155,20 @@ mainGameScreen = (function () {
         for (; entityIndex != 0; entityIndex--) {
             entities[entityIndex].draw(ctx);
         }
+        
+        // Add timer
+        ctx.save();
+        ctx.translate(0, 0);
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(10, 10, 50, 50);
+        ctx.restore();
+
+        // Add score
+        ctx.save();
+        ctx.translate(530, 0);
+        ctx.fillStyle = 'yellow';
+        ctx.fillRect(10, 10, 50, 50);
+        ctx.restore();
     }
 
     function update(elapsed) {
