@@ -65,8 +65,17 @@ function makeEnemyShip(x, y) {
 
         ctx.translate(position.x, position.y);
         ctx.rotate(orientation);
+
         ctx.fillStyle = 'yellow';
-        ctx.fillRect(-3, -1, 6, 2);
+//        var butter = new Image();
+//        butter.src = "butterfly.png";
+//        
+//        // Make sure the image is loaded first otherwise nothing will draw.
+//        butter.onload = function(){
+//            ctx.drawImage(butter,0,0);   
+//        };
+
+        ctx.fillRect(-4, -2, 8, 4);
         ctx.restore();
 
 //        ctx.beginPath();
@@ -133,8 +142,6 @@ mainGameScreen = (function () {
 
     function draw(ctx) {
 //        ctx.fillStyle = 'black';
-//        var img = document.getElementsByTagName('img')[0];
-//        img.src = canvas.toDataURL();
         var background = new Image();
         background.src = "bg.jpg";
         
