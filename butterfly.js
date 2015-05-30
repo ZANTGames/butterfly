@@ -31,6 +31,7 @@ canvas.setAttribute('height', 300);
 
 surface = canvas.getContext('2d');
 
+
 mouse = (function (target) {
     var isButtonDown = false;
 
@@ -68,10 +69,10 @@ function makeEnemyShip(x, y) {
         ctx.fillRect(-3, -1, 6, 2);
         ctx.restore();
 
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,0,0,0.5)';
-        ctx.arc(target.x, target.y, 2, 0, Math.PI * 2, true);
-        ctx.fill();
+//        ctx.beginPath();
+//        ctx.fillStyle = 'rgba(255,0,0,0.5)';
+//        ctx.arc(target.x, target.y, 2, 0, Math.PI * 2, true);
+//        ctx.fill();
     }
 
     function update(elapsed) {
@@ -121,7 +122,7 @@ function makeEnemyShip(x, y) {
 mainGameScreen = (function () {
 
     var entities = [];
-    var numOfEnemyShips = 4;
+    var numOfEnemyShips = 80;
 
     function start() {
 
@@ -131,8 +132,17 @@ mainGameScreen = (function () {
     }
 
     function draw(ctx) {
-        ctx.fillStyle = 'black';
-        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+//        ctx.fillStyle = 'black';
+//        var img = document.getElementsByTagName('img')[0];
+//        img.src = canvas.toDataURL();
+        var background = new Image();
+        background.src = "bg.jpg";
+        
+        // Make sure the image is loaded first otherwise nothing will draw.
+        background.onload = function(){
+            ctx.drawImage(background,0,0);   
+        };
+//        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
         var entityIndex = entities.length - 1;
         for (; entityIndex != 0; entityIndex--) {
